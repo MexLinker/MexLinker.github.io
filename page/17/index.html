@@ -71,6 +71,106 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-thinkPHP" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/11/15/thinkPHP/" class="article-date">
+  <time class="dt-published" datetime="2021-11-15T15:43:16.645Z" itemprop="datePublished">2021-11-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="thinkPHP"><a href="#thinkPHP" class="headerlink" title="thinkPHP"></a>thinkPHP</h4><ol>
+<li><p>官方文档<br>kancloud.cn/manual/thinkphp6_0</p>
+</li>
+<li><p>```bash<br>apt-get update<br>apt-get install curl<br>sudo apt-get install php<br>curl -sS <a target="_blank" rel="noopener" href="https://getcomposer.org/installer">https://getcomposer.org/installer</a> | php<br>mv composer.phar /usr/local/bin/composer</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 简单来说，安装php太复杂</span><br><span class="line"></span><br><span class="line">   1. 安装php</span><br><span class="line">   2. 安装composer</span><br><span class="line"></span><br><span class="line">4. ```bash</span><br><span class="line">   #创建模板</span><br><span class="line">   composer create-project topthink/think tp</span><br></pre></td></tr></table></figure>
+
+<p>会创建 tp 文件夹，中有工程文件结构</p>
+<p>默认访问 public.index.php</p>
+</li>
+<li><p>```bash<br>/root/workspace/tp<br>/var/www;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">6. nginx.conf配置文件在 /etc/nginx/ </span><br><span class="line">   /etc/nginx/conf.d/</span><br><span class="line"></span><br><span class="line">7. &gt; **nginx不支持thinkphp的原因**</span><br><span class="line">   &gt;</span><br><span class="line">   &gt; ThinkPHP支持通过PATHINFO和URL rewrite的方式来提供友好的URL，只需要在配置文件中设置 &#x27;URL_MODEL&#x27; =&gt; 2 即可。在Apache下只需要开启mod_rewrite模块就可以正常访问了，但是Nginx中默认是不支持PATHINFO的，所以nginx默认情况下是不支持thinkphp的。不过我们可以通过修改nginx的配置文件来让其支持thinkphp。</span><br><span class="line">   &gt;</span><br><span class="line">   &gt; **让nginx支持pathinfo，支持thinkphp**</span><br><span class="line">   &gt;</span><br><span class="line">   &gt; 我们打开nginx的配置文件，如果是想某个站点支持，请打开对应站点的配置文件</span><br><span class="line"></span><br><span class="line">8. docker build -t pdophp ./</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">tips：</span><br><span class="line"></span><br><span class="line">1. composer</span><br><span class="line"></span><br><span class="line">2. ```bash</span><br><span class="line">   #php需求组件</span><br><span class="line">   apt-get install php-mbstring</span><br></pre></td></tr></table></figure></li>
+<li><p>ss命令 – 显示活动套接字信息<br>是Socket Statistics的缩写<br>它可以显示和netstat类似的内容。但ss的优势在于它能够显示更多更详细的有关TCP和连接状态的信息，而且比netstat更快速更高效。</p>
+</li>
+<li><p>```bash<br>docker run –name “phpTiral01” -p 3002:80 -d 62<br>apt-get install zip unzip</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">5. nginx 修改配置文件</span><br><span class="line"></span><br><span class="line">6. ```bash</span><br><span class="line">   apt-get install curl zip unzip php php-mbstring vim</span><br></pre></td></tr></table></figure></li>
+<li><p>/usr/local/bin/</p>
+</li>
+<li><pre><code class="yaml">version: &quot;3&quot;
+services:
+  nginx:
+    image: nginx:1.12-alpine
+    container_name: tp3-nginx
+    ports:
+      - &quot;80:80&quot;
+    networks:
+      - dockerinnernet
+    depends_on:
+      - &quot;php&quot;
+    volumes:
+      - ~/docker_data/nginx:/etc/nginx/conf.d
+      - ~/docker_data/wwwroot:/var/www/html:ro
+  php:
+    image: surenkid/php53:latest
+    container_name: tp3-php
+    ports:
+      - &quot;9000:9000&quot;
+    networks:
+      - dockerinnernet
+    depends_on:
+      - &quot;mysql&quot;
+      - &quot;redis&quot;
+    volumes:
+      - ~/docker_data/wwwroot:/var/www/html
+  mysql:
+    image: mysql:5.6.36
+    container_name: tp3-mysql
+    ports:
+      - &quot;3306:3306&quot;
+    networks: 
+      - dockerinnernet
+    volumes:
+      - mydata:/var/lib/mysql
+      - ~/docker_data/dbdump:/root
+    environment:
+      MYSQL_ROOT_PASSWORD: &quot;hi_ktsee_com&quot;
+  redis:
+    image: redis:3.0-alpine
+    container_name: tp3-redis
+    ports:
+      - &quot;6379:6379&quot;
+    networks: 
+      - dockerinnernet
+    volumes:
+      - ~/docker_data/redis:/data
+networks: 
+  dockerinnernet:
+volumes:
+  mydata:
+</code></pre>
+</li>
+<li></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/11/15/thinkPHP/" data-id="ckw0vhzb3001hpw3i7icl7nxw" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-talk in Youtube" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/11/15/talk%20in%20Youtube/" class="article-date">
@@ -680,84 +780,11 @@ proxy_pass http://192.168.1.60;
 
 
   
-    <article id="post-Recent Topics" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/11/15/Recent%20Topics/" class="article-date">
-  <time class="dt-published" datetime="2021-11-15T15:43:16.519Z" itemprop="datePublished">2021-11-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="Recent-Topics"><a href="#Recent-Topics" class="headerlink" title="Recent Topics"></a>Recent Topics</h4><blockquote>
-<p>我想说也许假期马上就要完了，但是我还是一样——对生活要有热情MaxNBD！<br>我有好多想要做的事情——那么我可以每天计划好时间——完成很多我想要做的事情！<br>我想要、我有能力、我可以</p>
-<p>此为坐标，在接下来的生活里要加油要加油！</p>
-</blockquote>
-<ol>
-<li>生活<ol>
-<li>兴趣<ol>
-<li>Guitar<ol>
-<li>练习</li>
-<li>乐理</li>
-<li>录制</li>
-</ol>
-</li>
-<li>看书</li>
-</ol>
-</li>
-<li>Routine</li>
-<li>运动</li>
-</ol>
-</li>
-<li>学习<ol>
-<li>科目<ol>
-<li>测量学</li>
-<li>物理化学</li>
-</ol>
-</li>
-<li>IT<ol>
-<li>DS</li>
-<li>Servlet？</li>
-<li>getMore</li>
-</ol>
-</li>
-<li>成为一个 更完整的人</li>
-</ol>
-</li>
-<li>Emo<ol>
-<li>不要想太多，而是先做</li>
-<li>其实在这个状态下的我很懒…</li>
-<li>要改变</li>
-<li>很重要的一点是——<strong>不要一直自我怀疑</strong></li>
-<li>有什么技能点提升自己</li>
-</ol>
-</li>
-</ol>
-<p>PS：提高效率！</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/15/Recent%20Topics/" data-id="ckw0vhzam000opw3ib04652vh" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/16/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/18/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/16/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/18/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -789,6 +816,10 @@ proxy_pass http://192.168.1.60;
       <ul>
         
           <li>
+            <a href="/2021/11/16/%E7%A4%BC%E5%A0%82C/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2021/11/15/hello-world/">Hello World</a>
           </li>
         
@@ -802,10 +833,6 @@ proxy_pass http://192.168.1.60;
         
           <li>
             <a href="/2021/11/15/%E9%BC%93%E6%A5%BC/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2021/11/15/%E9%A9%AC%E5%8E%9F%E8%AF%BE%E7%AC%94%E8%AE%B0%E4%B9%8B01/">(no title)</a>
           </li>
         
       </ul>
